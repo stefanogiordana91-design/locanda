@@ -21,7 +21,7 @@ jobs:
           code=$(curl -s -o /dev/null -w '%{http_code}' "$URL/rest/v1/compendium?select=id&limit=1" -H "apikey: $KEY" -H "Authorization: Bearer $KEY")
           echo "risposta del database: $code"
           test "$code" = "200"
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Un segno al mese nel repository (GitHub spegne le azioni pianificate dopo 60 giorni senza attività)
         run: |
           if [ "$(date +%d)" -le 3 ]; then
